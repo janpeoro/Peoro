@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body class="bg-gray center-content">
+    <div class="container">
+        <div class="card">
+            <h1>Registration Form</h1>
+            <form class="form">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstname">
+                
+                <label for="">Last Name:</label>
+                <input type="text" name="lastname">
+        
+                <label for="">Nick Name:</label>
+                <input type="text" name="nickname">
+        
+                <label for="">Email:</label>
+                <input type="email" name="email">
+        
+                <label for="">Password:</label>
+                <input type="password" name="passw">
+        
+                <label for="">Date of Birth:</label>
+                <input type="date" name="dob">
+        
+                <label for="">Gender:</label>
+                <div>
+                    <input id="M" type="radio" name="gender" value="M" onchange="validateForm()">
+                    <label for="M">Male</label> 
+                    <input id="F" type="radio" name="gender" value="F" onchange="validateForm()">
+                    <label for="F">Female</label>
+                    <input id="O" type="radio" name="gender" value="O" onchange="validateForm()">
+                    <label for="O">Other</label>
+                </div>
+                
+                <label for="">Mobile:</label>
+                <input type="number" name="mobilenum">
+        
+                <label for="">Address:</label>
+                <textarea name="address" cols="30" rows="10"></textarea>
+                
+                <div class="mt-1">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-danger" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+const form = document.querySelector('.form');
+const submitButton = form.querySelector('button[type="submit"]');
+const successMessage = '<p style="color:green">Hooray! Your account has been successfully created.</p>';
+
+submitButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  const passwordInput = form.querySelector('input[name="passw"]');
+  const dobInput = form.querySelector('input[name="dob"]');
+  const password = passwordInput.value;
+  const dob = new Date(dobInput.value);
+  const ageDiffMs = Date.now() - dob.getTime();
+  const ageDate = new Date(ageDiffMs);
+  const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+  
+  if (password.length < 8) {
+    passwordInput.insertAdjacentHTML('afterend', '<p style="color:red">Password must be at least 8 characters.</p>');
+    return;
+  }
+  
+  if (age < 21) {
+    dobInput.insertAdjacentHTML('afterend', '<p style="color:red">Minors are not allowed!</p>');
+    return;
+  }
+  
+  form.insertAdjacentHTML('beforeend', successMessage);
+});
+    </script>
+    
+</body>
