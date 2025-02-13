@@ -1,54 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-        
-html, body {
-    margin: 0;
-    padding: 2rem 0;
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 2rem 0;
 }
 * {
-    font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .bg-gray {
-    background-color: lightslategray;
+  background-color: black;
 }
 
 .mt-1 {
-    margin-top: 1rem ;
+  margin-top: 1rem;
 }
 
 .center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    width: 20%;
-    margin: 0 auto;
+  width: 20%;
+  margin: 0 auto;
 }
 
 .btn {
-    padding: 0.35rem 2rem;
-    border: none;
+  padding: 0.35rem 2rem;
+  border: none;
 }
 
 .btn-success {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .btn-danger {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 5px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
